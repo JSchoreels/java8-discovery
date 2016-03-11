@@ -84,4 +84,19 @@ public class ServiceTest {
 
     }
 
+    @Test
+    public void BestSolutionStreamRequestResponseToList() {
+
+        final List<Request> requests = new ArrayList<Request>();
+
+        final List<Response> responses = bodies.stream()
+                .map(Request::new)
+                .peek(requests::add)
+                .map(service::send)
+                .collect(Collectors.toList());
+
+        commonAssertions(requests, responses);
+
+    }
+
 }
