@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.Comparator.*;
 
@@ -65,6 +66,7 @@ public class SortingTest {
         // Java 8
         persons.sort(comparing(Person::getLastname).thenComparing(Person::getAge, reverseOrder()));
         System.out.println(persons);
+
     }
 
 
